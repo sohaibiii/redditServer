@@ -1,7 +1,7 @@
 module.exports = {
   port: process.env.PORT || 8080,
   db: {
-    prod: 'mongodb://sohaibali:test1214@ds341837.mlab.com:41837/sohaibalidb',
+    prod: process.env.DATABASE_URL || 'mongodb://localhost:27017/reddit',
     test: 'mongodb://localhost:27017/reddit_test',
     options: {
       useNewUrlParser: true,
@@ -12,7 +12,7 @@ module.exports = {
     }
   },
   jwt: {
-    secret: 'development_secret',
+    secret: process.env.SECRET_KEY || 'development_secret',
     expiry: '7d'
   }
 };

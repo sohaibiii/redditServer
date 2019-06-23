@@ -10,11 +10,7 @@ const connect = url => {
 };
 
 app.listen(config.port, () => {
-  process.env.NODE_ENV === 'production'
-    ? connect(
-        'mongodb://sohaibali:test1214@ds341837.mlab.com:41837/sohaibalidb'
-      )
-    : connect(config.db.prod);
+  connect(config.db.prod);
 
   mongoose.connection.on('error', console.log);
   console.log('success');
